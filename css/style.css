@@ -1,0 +1,576 @@
+/* ======================================================
+   SENTINEL AI — Professional Surveillance Platform
+   Command Center Dark Theme
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ─── Base Reset ─────────────────────────────────────── */
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* ─── Streamlit Root Overrides ───────────────────────── */
+.stApp {
+    background-color: #0A0E1A !important;
+    color: #E2E8F0 !important;
+}
+
+/* Main content area */
+section[data-testid="stMain"] > div {
+    padding-top: 1rem;
+}
+
+/* ─── Sidebar ────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background-color: #0D1117 !important;
+    border-right: 1px solid #1E2D3D !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: #CBD5E1 !important;
+}
+
+[data-testid="stSidebar"] .stRadio label {
+    color: #94A3B8 !important;
+    font-size: 0.875rem !important;
+    padding: 0.4rem 0.6rem !important;
+    border-radius: 4px !important;
+    transition: all 0.15s ease !important;
+    cursor: pointer !important;
+}
+
+[data-testid="stSidebar"] .stRadio label:hover {
+    color: #F8FAFC !important;
+    background: rgba(30, 45, 61, 0.6) !important;
+}
+
+/* ─── Typography ─────────────────────────────────────── */
+h1, h2, h3 {
+    color: #F1F5F9 !important;
+    letter-spacing: -0.02em !important;
+    font-weight: 600 !important;
+}
+
+h1 { font-size: 1.75rem !important; }
+h2 { font-size: 1.35rem !important; }
+h3 { font-size: 1.1rem !important; }
+
+p, li {
+    color: #94A3B8 !important;
+    line-height: 1.65 !important;
+}
+
+/* ─── Page Header Component ──────────────────────────── */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0 1.25rem;
+    border-bottom: 1px solid #1E2D3D;
+    margin-bottom: 1.75rem;
+}
+
+.page-header-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #0EA5E9, #0284C7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.page-header h1 {
+    margin: 0 !important;
+    font-size: 1.5rem !important;
+    color: #F1F5F9 !important;
+}
+
+.page-header .subtitle {
+    color: #64748B !important;
+    font-size: 0.8rem !important;
+    margin: 0 !important;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ─── KPI / Metric Cards ─────────────────────────────── */
+.kpi-card {
+    background: #0D1117;
+    border: 1px solid #1E2D3D;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.kpi-card:hover {
+    border-color: #334155;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent-color, #0EA5E9);
+}
+
+.kpi-card .label {
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #475569;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #F1F5F9;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.kpi-card .delta {
+    font-size: 0.75rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #64748B;
+}
+
+.kpi-card.alert::before { background: #EF4444; }
+.kpi-card.success::before { background: #10B981; }
+.kpi-card.warning::before { background: #F59E0B; }
+.kpi-card.info::before { background: #0EA5E9; }
+
+/* ─── Panel / Section Cards ──────────────────────────── */
+.panel {
+    background: #0D1117;
+    border: 1px solid #1E2D3D;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #1A2535;
+}
+
+.panel-title {
+    font-size: 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #64748B;
+    margin: 0;
+}
+
+/* ─── Status Badges ──────────────────────────────────── */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.badge-online {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-alert {
+    background: rgba(239, 68, 68, 0.12);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.12);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-info {
+    background: rgba(14, 165, 233, 0.12);
+    color: #0EA5E9;
+    border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.badge-dot.pulse {
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ─── Alert Rows ─────────────────────────────────────── */
+.alert-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid transparent;
+    font-size: 0.875rem;
+}
+
+.alert-row.high {
+    background: rgba(239, 68, 68, 0.06);
+    border-left-color: #EF4444;
+}
+
+.alert-row.medium {
+    background: rgba(245, 158, 11, 0.06);
+    border-left-color: #F59E0B;
+}
+
+.alert-row.low {
+    background: rgba(14, 165, 233, 0.06);
+    border-left-color: #0EA5E9;
+}
+
+.alert-time {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #475569;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.alert-text { color: #CBD5E1; flex: 1; }
+
+/* ─── Camera Feed Tile ───────────────────────────────── */
+.cam-tile {
+    background: #080C14;
+    border: 1px solid #1E2D3D;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.cam-tile:hover { border-color: #0EA5E9; }
+
+.cam-screen {
+    background: #050810;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cam-screen-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #1E3A5F;
+    text-align: center;
+}
+
+.cam-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,20,40,0.15) 2px,
+        rgba(0,20,40,0.15) 4px
+    );
+    pointer-events: none;
+}
+
+.cam-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.875rem;
+    border-top: 1px solid #1A2535;
+}
+
+.cam-id {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: #475569;
+}
+
+/* ─── Result Verdict Box ─────────────────────────────── */
+.verdict-box {
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid;
+    margin: 1rem 0;
+}
+
+.verdict-box.suspicious {
+    background: rgba(239, 68, 68, 0.07);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.verdict-box.normal {
+    background: rgba(16, 185, 129, 0.07);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.verdict-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.35rem;
+}
+
+.verdict-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #F1F5F9 !important;
+}
+
+.verdict-box.suspicious .verdict-label { color: #EF4444; }
+.verdict-box.normal .verdict-label { color: #10B981; }
+
+/* ─── Probability Bar ────────────────────────────────── */
+.prob-bar-wrap {
+    margin: 0.75rem 0;
+}
+
+.prob-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748B;
+    margin-bottom: 0.35rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.prob-bar-track {
+    background: #1A2535;
+    border-radius: 3px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.prob-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+.prob-bar-fill.high { background: #EF4444; }
+.prob-bar-fill.medium { background: #F59E0B; }
+.prob-bar-fill.low { background: #10B981; }
+
+/* ─── Info Table ─────────────────────────────────────── */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.info-table tr {
+    border-bottom: 1px solid #1A2535;
+}
+
+.info-table tr:last-child { border-bottom: none; }
+
+.info-table td {
+    padding: 0.6rem 0;
+    color: #94A3B8 !important;
+}
+
+.info-table td:first-child {
+    color: #475569 !important;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 40%;
+}
+
+.info-table td:last-child {
+    color: #CBD5E1 !important;
+    font-weight: 500;
+}
+
+/* ─── Section Divider ────────────────────────────────── */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.section-divider-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #334155;
+    white-space: nowrap;
+}
+
+.section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: #1A2535;
+}
+
+/* ─── Streamlit Component Overrides ──────────────────── */
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, #0369A1, #0284C7) !important;
+    color: #F0F9FF !important;
+    border: none !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1.25rem !important;
+    transition: opacity 0.2s ease, transform 0.15s ease !important;
+}
+
+.stButton > button:hover {
+    opacity: 0.9 !important;
+    transform: translateY(-1px) !important;
+}
+
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #0EA5E9, #0284C7) !important;
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+    background: #0D1117 !important;
+    border: 1px dashed #1E2D3D !important;
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: #0EA5E9 !important;
+}
+
+/* Progress / Spinner */
+.stSpinner > div {
+    border-color: #0EA5E9 transparent transparent !important;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"] {
+    background: #0D1117 !important;
+    border: 1px solid #1E2D3D !important;
+    border-radius: 8px !important;
+}
+
+/* Selectbox / Inputs */
+[data-testid="stSelectbox"],
+[data-testid="stTextInput"] {
+    background: #0D1117 !important;
+}
+
+.stSelectbox > div > div,
+.stTextInput > div > div > input {
+    background: #0D1117 !important;
+    border-color: #1E2D3D !important;
+    color: #E2E8F0 !important;
+    border-radius: 6px !important;
+}
+
+/* Metric component override */
+[data-testid="stMetric"] {
+    background: #0D1117 !important;
+    border: 1px solid #1E2D3D !important;
+    border-radius: 10px !important;
+    padding: 1rem 1.25rem !important;
+}
+
+[data-testid="stMetricLabel"] {
+    color: #475569 !important;
+    font-size: 0.7rem !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: #F1F5F9 !important;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+}
+
+[data-testid="stMetricDelta"] svg { display: none !important; }
+
+/* Alerts / info boxes */
+.stAlert {
+    background: #0D1117 !important;
+    border-radius: 6px !important;
+    border-width: 1px !important;
+}
+
+/* Divider */
+hr {
+    border-color: #1A2535 !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* Plotly chart bg */
+.js-plotly-plot .plotly {
+    background: transparent !important;
+}
+
+/* Streamlit info/success/error boxes */
+div[data-testid="stAlert"] {
+    border-radius: 6px !important;
+}
+
+/* ─── Page Fade-in ───────────────────────────────────── */
+.main-content {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Scrollbar Styling ──────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080C14; }
+::-webkit-scrollbar-thumb { background: #1E2D3D; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+    .kpi-card { padding: 1rem; }
+    .panel { padding: 1rem; }
+    .kpi-card .value { font-size: 1.5rem; }
+}
